@@ -1,14 +1,9 @@
-//Catch all route segment
-
-//You should use async in your Next.js component or function when working with data or dynamic parameters that require asynchronous resolution.
-
-//Use async when fetching data, server side function like: getserversideprops, work in duynamic routes, and dynamic data depends on aync operationn like database query
-
-// No need to use async if passed on data is static
-
-// Use async only when you need to handle asynchronous operations like data fetching, I/O-bound tasks, or resolving dynamic parameters that are not immediately available. Avoid overusing it for static or synchronous scenarios.
-
-// Using redis to know which website has been indexed 
+{/*Catch all route segment
+You should use async in your Next.js component or function when working with data or dynamic parameters that require asynchronous resolution.
+Use async when fetching data, server side function like: getserversideprops, work in duynamic routes, and dynamic data depends on aync operationn like database query
+No need to use async if passed on data is static
+Use async only when you need to handle asynchronous operations like data fetching, I/O-bound tasks, or resolving dynamic parameters that are not immediately available. Avoid overusing it for static or synchronous scenarios.
+Using redis to know which website has been indexed */}
 
 import { ragChat } from "../lib/rag-chat";
 import { redis } from "../lib/redis";
@@ -34,7 +29,7 @@ const Page =  async ({ params }: PageProps) => {
 
 
     const { url } = await params;
-    // Ensure params.url is available before using it
+    {/*Ensure params.url is available before using it*/}
     if (!url || !Array.isArray(url)) {
         throw new Error("URL parameters are malformed or unavailable.");
     }
@@ -46,7 +41,7 @@ const Page =  async ({ params }: PageProps) => {
         url: url as string[]
     })
 
-    // construct a unique sessionId by the url and cookie for each website
+    {/*construct a unique sessionId by the url and cookie for each website */}
     const sessionCookie = (await cookies()).get("sessionId")?.value;
     const sessionId = (reconstructedUrl + "--" + sessionCookie).replace(/\//g, "")
 
@@ -61,7 +56,7 @@ const Page =  async ({ params }: PageProps) => {
 
 
     if(!isAlredayIndexed) {
-         // use redis to know which website has been indexed
+        {/* use redis to know which website has been indexed */}
         await ragChat.context.add({
             type: "html",
             source: reconstructedUrl,
