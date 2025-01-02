@@ -9,7 +9,7 @@ export default function Home() {
       <div className="border-2 border-gray-500 rounded-lg p-4">
         <ol className="text-zinc-400 text-sm tracking-normal mx-auto max-w-2xl space-y-4 list-decimal pl-5">
           <li>Choose the website that you want to ask about.</li>
-          <li>Append it to this website: <strong>{"your website"}</strong>
+          <li>Append it to the end of this website link
           </li>
           <li>Now the chatbot will appear, and you can freely ask about anything regarding the website.</li>
         </ol>
