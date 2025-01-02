@@ -13,9 +13,9 @@ import { cookies } from "next/headers";
 
 
 interface PageProps {
-    params: {
+    params:Promise< {
         url: string | string[] | undefined
-    }
+    }>
 }
 
 function reconstructUrl({ url }: { url: string[] }) {
